@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Vazirmatn", system-ui, sans-serif;
+  --color-emerald-deep: #062e22;
+  --color-emerald-royal: #0b3d2e;
+  --color-gold: #c9a227;
+  --color-gold-light: #e8c766;
+  --color-cream: #faf6ec;
+  --color-ink: #14201b;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: "Vazirmatn", system-ui, sans-serif; background:#faf6ec; color:#14201b; }
+::selection { background:#c9a227; color:#062e22; }
+::-webkit-scrollbar { width:10px; height:8px; }
+::-webkit-scrollbar-track { background:#efe7d3; }
+::-webkit-scrollbar-thumb { background:linear-gradient(#0b3d2e,#c9a227); border-radius:99px; }
+
+.gold-text { background:linear-gradient(120deg,#f3d67a,#c9a227 45%,#f7e7a6 70%,#a8821c); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.gold-border { border:1px solid rgba(201,162,39,.45); }
+.glass { background:rgba(255,255,255,.82); backdrop-filter:blur(16px); }
+.dark-glass { background:rgba(6,46,34,.72); backdrop-filter:blur(16px); }
+.lux-shadow { box-shadow:0 20px 50px -18px rgba(6,46,34,.35), 0 4px 14px rgba(201,162,39,.12); }
+.card-hover { transition:all .45s cubic-bezier(.22,1,.36,1); }
+.card-hover:hover { transform:translateY(-8px); box-shadow:0 30px 60px -20px rgba(6,46,34,.45); }
+.card-hover:hover .card-img { transform:scale(1.08); }
+.card-img { transition:transform .8s cubic-bezier(.22,1,.36,1); }
+
+@keyframes floaty { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
+@keyframes fadeUp { from{opacity:0; transform:translateY(24px)} to{opacity:1; transform:translateY(0)} }
+@keyframes shimmer { 0%{background-position:200% center} 100%{background-position:-200% center} }
+@keyframes marquee { from{transform:translateX(0)} to{transform:translateX(50%)} }
+.animate-floaty { animation:floaty 5s ease-in-out infinite; }
+.animate-fadeUp { animation:fadeUp .8s cubic-bezier(.22,1,.36,1) both; }
+.delay-1{animation-delay:.1s}.delay-2{animation-delay:.2s}.delay-3{animation-delay:.3s}
+.shimmer-line { background:linear-gradient(90deg,transparent,#c9a227,transparent); background-size:200% 100%; animation:shimmer 3s linear infinite; }
+.no-scrollbar::-webkit-scrollbar{display:none}
+.no-scrollbar{scrollbar-width:none}
+input,select,textarea{outline:none}
+input:focus,select:focus,textarea:focus{border-color:#c9a227!important; box-shadow:0 0 0 3px rgba(201,162,39,.18)}
+
+/* دکمه طلایی لاکچری — مانند نسخه اول: گرادیان نرم، بدون حاشیه مشکی، فقط درخشش طلایی */
+.btn-gold{position:relative;display:flex;align-items:center;justify-content:center;gap:.5rem;width:100%;
+  background:linear-gradient(105deg,#f7e7a6,#c9a227 35%,#f3d67a 62%,#a8821c);
+  color:#062e22;font-weight:900;font-size:1rem;padding:1rem 1.5rem;border-radius:9999px;border:none;cursor:pointer;
+  box-shadow:0 12px 28px -8px rgba(201,162,39,.75),0 0 0 1px rgba(255,255,255,.5) inset;
+  transition:transform .18s cubic-bezier(.22,1,.36,1),box-shadow .18s,filter .18s;user-select:none}
+.btn-gold:hover{filter:brightness(1.07);transform:translateY(-2px);box-shadow:0 18px 34px -10px rgba(201,162,39,.85),0 0 0 1px rgba(255,255,255,.5) inset}
+.btn-gold:active{transform:translateY(2px) scale(.985);box-shadow:0 4px 10px -4px rgba(201,162,39,.6)}
+.btn-gold:disabled{opacity:.6;transform:none;cursor:not-allowed}
+.btn-gold::after{content:"";position:absolute;inset:3px 12px auto 12px;height:38%;border-radius:9999px;background:linear-gradient(rgba(255,255,255,.55),rgba(255,255,255,0));pointer-events:none}
+/* همان دکمه طلایی اما در اندازه کوچک برای هدر */
+.btn-gold-sm{width:auto;padding:.625rem 1.25rem;font-size:.875rem}
